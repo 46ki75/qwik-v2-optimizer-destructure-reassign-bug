@@ -1,24 +1,8 @@
-# Paste-ready GitHub issue body
-
-This file is structured to match the fields in
-[`.github/ISSUE_TEMPLATE/bug.yaml`](https://github.com/QwikDev/qwik/blob/build/v2/.github/ISSUE_TEMPLATE/bug.yaml).
-When filing, paste each section below into the matching form field.
-
----
-
-## Title
-
-```
-[🐞] Optimizer's `transform_props_destructuring` mis-rewrites plain helper arrows, breaking dev SSR and production
-```
-
----
+# [🐞] v2: Optimizer's `transform_props_destructuring` mis-rewrites plain helper arrows, breaking dev SSR and production
 
 ## Which component is affected?
 
-```
-Qwik Optimizer (rust)
-```
+`Qwik Optimizer (rust)`
 
 (The bug reproduces with only `qwikVite()` in the Vite plugin list; the
 router is not involved.)
@@ -59,7 +43,7 @@ Information for the change summary.
 
 ## Reproduction
 
-https://github.com/46ki75/qwik-v2-optimizer-destructure-reassign-bug
+<https://github.com/46ki75/qwik-v2-optimizer-destructure-reassign-bug>
 
 The repo contains the minimal trigger (3 files: `src/routes/index.tsx`,
 `src/utils/head.ts`, `src/root.tsx`), the vanilla v2 starter shell, and a
@@ -90,7 +74,7 @@ void _eager;
 
 `curl http://localhost:5173/` then returns a 500 with:
 
-```
+```sh
 "message":"ogImage is not defined"
 "stack":"    at buildHead (src/utils/head.ts:N:M)
          at eval (src/routes/index.tsx:N:M)
