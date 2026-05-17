@@ -1,0 +1,27 @@
+{
+  "name": "qwik-v2-optimizer-destructure-reassign-bug",
+  "description": "Minimal reproduction of a Qwik v2 optimizer bug: the destructured-parameter rewrite pass in @qwik.dev/core@2.0.0-beta.35 either drops the assignment (RHS is a string literal) or leaves the LHS as an undeclared identifier (RHS is a template literal), producing silent miscompilation or a hung dev SSR request.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+  },
+  "scripts": {
+    "dev": "vite --mode ssr",
+    "dev.hang": "vite --mode ssr",
+    "build": "qwik build",
+    "build.client": "vite build",
+    "build.server": "vite build --ssr src/entry.ssr.tsx",
+    "preview": "qwik build preview && vite preview --open",
+    "qwik": "qwik"
+  },
+  "devDependencies": {
+    "@qwik.dev/core": "2.0.0-beta.35",
+    "@qwik.dev/router": "2.0.0-beta.35",
+    "@types/node": "^25.8.0",
+    "typescript": "5.8",
+    "undici": "*",
+    "vite": "7.3.2",
+    "vite-tsconfig-paths": "5.1.4"
+  }
+}
