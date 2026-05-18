@@ -14,12 +14,15 @@ router is not involved.)
 The optimizer's `transform_props_destructuring` pass treats **any** arrow
 function with a single destructured parameter and a `return` statement as a
 Qwik inline component, regardless of whether the function actually is one.
+
 The pass renames the parameter to `_rawProps` and rewrites identifier
 **reads** of the destructured names to `_rawProps.<name>` — but it does not
-rewrite the LHS of assignments. When the function body reassigns the
-destructured binding (a common pattern in plain helpers that default an
-optional argument, e.g. `if (!ogImage) ogImage = …`), the rewritten code
-ends up writing to a now-undeclared identifier.
+rewrite the LHS of assignments.
+
+When the function body reassigns the destructured binding (a common pattern
+in plain helpers that default an optional argument, e.g.
+`if (!ogImage) ogImage = …`), the rewritten code ends up writing to a
+now-undeclared identifier.
 
 User-visible failure modes (all empirically observed, see Additional
 Information):
